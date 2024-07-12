@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- bean definitions here -->
+    <bean id="address" class="org.example.Address">
+        <property name="city" value="Hanoi"></property>
+        <property name="district" value="Cau Giay"></property>
+    </bean>
+
+    <bean id="javaDeveloper" class="org.example.Employee">
+        <property name="id" value="1"></property>
+        <property name="name" value="Maria"></property>
+        <property name="address" ref="address"></property>
+    </bean>
+
+    <bean id="javaDeveloper2" class="org.example.Employee">
+        <constructor-arg name="id" type="int" value="2" />
+        <constructor-arg name="name" value="Kien" />
+        <constructor-arg name="address" ref="address" />
+    </bean>
+
+    <bean id="javaDeveloper3" class="org.example.Employee">
+        <constructor-arg index="0" value="3"></constructor-arg>
+        <constructor-arg index="1" value="Tuan"></constructor-arg>
+        <constructor-arg index="2" ref="address"></constructor-arg>
+    </bean>
+<!--    <bean id="reactDeveloper" class="com.fsoft.hoalac.Employee">-->
+<!--        <constructor-arg index="0" value="2"></constructor-arg>-->
+<!--        <constructor-arg index="1" value="Jack5M"></constructor-arg>-->
+<!--        <constructor-arg index="2" value="NY"></constructor-arg>-->
+<!--&lt;!&ndash;        <property name="address" ref="addr"></property>&ndash;&gt;-->
+<!--        <constructor-arg index="3"  ref="addr"></constructor-arg>-->
+<!--    </bean>-->
+
+<!--    <bean id="addr" class="com.fsoft.hoalac.VietnamAddress">-->
+<!--        <property name="district" value="HN"></property>-->
+<!--        <property name="streettttttttttt" value="PhoHue"></property>-->
+<!--    </bean>-->
+
+<!--    <bean id="greetingService" class="org.fsoft.service.GreetingService">-->
+<!--        <constructor-arg>-->
+<!--            <list>-->
+<!--                <ref bean="javaDeveloper" />-->
+<!--                <ref bean="reactDeveloper" />-->
+<!--            </list>-->
+<!--        </constructor-arg>-->
+<!--    </bean>-->
+
+</beans>
