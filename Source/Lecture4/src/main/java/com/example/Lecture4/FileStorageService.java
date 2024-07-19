@@ -4,11 +4,13 @@ import com.example.Lecture4.fileuploaddownload.FileStorageProperties;
 import com.example.Lecture4.fileuploaddownload.exception.FileStorageException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.Resource;
+import org.springframework.core.io.UrlResource;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -50,6 +52,16 @@ public class FileStorageService {
     } // end FileStorageService
 
     public Resource loadFileAsResource(String fileName) {
-        return null;
+        try {
+            Path filePath = this.fileStorageLocation.resolve(fileName).normalize();
+            Resource resource = new UrlResource(filePath.toUri());
+            if (resource.exists() && resource.isReadable()) {
+                return resource;
+            } else {
+                throw new FileStorageException("File not found " + fileName);
+            }
+        } catch (MalformedURLException ex) {
+            throw new FileStorageException("File not found " + fileName, ex);
+        }
     }
 }

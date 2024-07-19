@@ -4,7 +4,7 @@
 <form action="add" method="post">
     <input type="text" name="name">
     <input type="text" name="address">
-    <input type="submit" value="Press to greet">
+    <input type="submit" value="Add employee">
 </form>
 </body>
 </html>

@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>Xin chào <span th:text="${currentUser.fullName}"></span></h1>
+    <a th:href="@{/auth/logout}">Log out</a>
+</body>
+</html>

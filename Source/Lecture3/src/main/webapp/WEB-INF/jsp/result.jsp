@@ -6,7 +6,7 @@
     <title>List employee</title>
 </head>
 <body>
-
+<h2>List employee</h2>
 <table class="table">
             <thead>
             <tr>
@@ -24,7 +24,7 @@
                 </tr>
             </c:forEach>
         </tbody>
-        </table>
+</table>
 
 </body>
 </html>
